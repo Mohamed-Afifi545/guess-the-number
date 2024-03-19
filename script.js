@@ -16,6 +16,14 @@ let again = document.querySelector('.again');
 let body = document.querySelector('body');
 let number = document.querySelector('.number');
 
+guess.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    check.click();
+    guess.value = '';
+  }
+});
+
 function reset() {
   secretNumber = Math.trunc(Math.random() * 20) + 1;
   message.textContent = 'Start guessing...';
